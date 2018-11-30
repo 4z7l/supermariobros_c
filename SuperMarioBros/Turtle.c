@@ -5,7 +5,7 @@
 
 /*===============================Variables===============================*/
 char TurtleMotion[5][TURTLE_HEIGHT * TURTLE_WIDTH];
-static int isLoaded = 0;
+static int isLoadedTurtle = 0;
 int turtleNum = 0;
 
 typedef struct __turtle {
@@ -24,12 +24,12 @@ extern COORD getMarioPos();
 void TurtleInitialize(int stage)
 {
 
-	if (!isLoaded) {
+	if (!isLoadedTurtle) {
 		loadTurtle("TurtleLeft.txt", 0);
 		loadTurtle("TurtleRight.txt", 1);
 		loadTurtle("TurtleLeftWalk.txt", 2);
 		loadTurtle("TurtleRightWalk.txt", 3);
-		isLoaded = 1;
+		isLoadedTurtle = 1;
 	}
 	
 	switch (stage)
@@ -107,7 +107,45 @@ void TurtleInitialize(int stage)
 			tt[i].isRight = 1;
 		}
 		break;
+	case 43:
 
+		turtleNum = 2;
+
+		for (int i = 0; i < turtleNum; i++)
+		{
+			tt[i].turtleState = TurtleMotion[0];
+			tt[i].pos.X = (4 + 4 * i)*BRICK_WIDTH;
+			tt[i].pos.Y = 3 * BRICK_HEIGHT;
+			tt[i].isLeft = 0;
+			tt[i].isRight = 1;
+		}
+		break;
+	case 46:
+
+		turtleNum = 3;
+
+		for (int i = 0; i < turtleNum; i++)
+		{
+			tt[i].turtleState = TurtleMotion[0];
+			tt[i].pos.X = (8 + 2 * i)*BRICK_WIDTH;
+			tt[i].pos.Y = HEIGHT - 3 * BRICK_HEIGHT;
+			tt[i].isLeft = 0;
+			tt[i].isRight = 1;
+		}
+		break;
+	case 48:
+
+		turtleNum = 2;
+
+		for (int i = 0; i < turtleNum; i++)
+		{
+			tt[i].turtleState = TurtleMotion[0];
+			tt[i].pos.X = (10 + 2 * i)*BRICK_WIDTH;
+			tt[i].pos.Y = HEIGHT - (3 + 2 * i) * BRICK_HEIGHT;
+			tt[i].isLeft = 0;
+			tt[i].isRight = 1;
+		}
+		break;
 	default:
 		turtleNum = 0;
 		break;

@@ -13,11 +13,11 @@ void drawScore();
 void clearScreen();
 void setObjectToScreen(char img[], int imageWidth, int imageHeight, int xoffset, int yoffset);
 
-static int isLoaded = 0;
+static int isLoadedPodoboo = 0;
 
 void ScreenInitialize()
 {
-	if (!isLoaded) {
+	if (!isLoadedPodoboo) {
 		loadTextScreen("GameOverScreen.txt", 1);
 		
 		
@@ -30,7 +30,7 @@ void ScreenInitialize()
 			strcat(num, txt);
 			loadNumber(num, Numbers[i], NUMBER_WIDTH, NUMBER_HEIGHT);
 		}
-		isLoaded = 1;
+		isLoadedPodoboo = 1;
 	}
 
 

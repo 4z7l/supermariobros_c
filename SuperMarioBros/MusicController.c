@@ -137,3 +137,8 @@ void playGameOverSound()
 {
 	PlaySound(TEXT("Game over.wav"), NULL, SND_ASYNC);
 }
+
+void playPodobooSound()
+{
+	PlaySound(TEXT("laser.WAV"), NULL, SND_ASYNC);
+}

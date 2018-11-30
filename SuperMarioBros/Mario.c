@@ -10,7 +10,7 @@ int marioLife = 5;
 char *MarioState;
 char MarioMotion[10][MARIO_HEIGHT * MARIO_WIDTH];	//Max 10 motions now
 enum Motion { lSTAND, rSTAND, lWalk1, lWalk2, lWalk3, rWalk1, rWalk2, rWalk3, lJUMP, rJUMP };
-static int isLoaded = 0;
+static int isLoadedMario = 0;
 
 COORD MarioPos = { 0,0 };
 
@@ -32,7 +32,7 @@ void Mario_Move(int direction);
 
 void marioInitialize(int stage)
 {
-	if (!isLoaded) {
+	if (!isLoadedMario) {
 		loadMario("Mario_Stand_Right.txt", rSTAND);
 		loadMario("Mario_Stand_Left.txt", lSTAND);
 		loadMario("Mario_Walk_1_Right.txt", lWalk1);
@@ -40,7 +40,7 @@ void marioInitialize(int stage)
 		loadMario("Mario_Jump_Left.txt", lJUMP);
 		loadMario("Mario_Jump_Right.txt", rJUMP);
 
-		isLoaded = 1;
+		isLoadedMario = 1;
 	}
 	MarioPos.X = 0;
 	MarioPos.Y = 66;

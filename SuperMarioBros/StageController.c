@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include "info.h"
 
-int stage = 42;
+int stage = 1;
 int world=1;
 int turn = 1;
 void LoadStage(int stage)
@@ -12,6 +12,7 @@ void LoadStage(int stage)
 
 	consoleBufferInitialize();
 	marioInitialize(stage);
+	PodobooInitialize(stage);
 	GumbaInitialize(stage);
 	TurtleInitialize(stage);
 	KoopaInitialize(stage);

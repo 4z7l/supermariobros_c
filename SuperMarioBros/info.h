@@ -37,6 +37,9 @@
 #define THORN_HEIGHT 16
 #define THORN_WIDTH 32
 
+#define PODOBOO_HEIGHT 16
+#define PODOBOO_WIDTH 32
+
 #define YES 1
 #define NO 0
 

@@ -129,6 +129,9 @@ DWORD WINAPI EnemyProcess(LPVOID j)
 		Turtle_Gravity();
 		Turtle_Die();
 
+		Podoboo_Move();
+		Podoboo_Gravity();
+
 		Sleep(100);
 		if (isGameOver||nextStage) {
 			Sleep(3000);

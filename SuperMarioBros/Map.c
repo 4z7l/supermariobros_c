@@ -7,7 +7,7 @@
 /*===============================Variables===============================*/
 char Map[HEIGHT * WIDTH];
 char BackGround[HEIGHT * WIDTH];
-static int isLoaded = 0;
+static int isLoadedPodoboo = 0;
 /*===============================Functions===============================*/
 
 void loadTextMap(char *fileName, int mapNum);

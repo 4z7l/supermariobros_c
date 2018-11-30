@@ -5,7 +5,7 @@
 
 /*===============================Variables===============================*/
 char GumbaMotion[3][GUMBA_HEIGHT * GUMBA_WIDTH];
-static int isLoaded = 0;
+static int isLoadedGumba = 0;
 int gumbaNum = 0;
 
 typedef struct __gumba {
@@ -24,10 +24,10 @@ void loadGumba(char *fileName, int motion);
 void GumbaInitialize(int stage) 
 {
 
-	if (!isLoaded) {
+	if (!isLoadedGumba) {
 		loadGumba("GumbaLeft.txt", 0);
 		loadGumba("GumbaRight.txt", 1);
-		isLoaded = 1;
+		isLoadedGumba = 1;
 	}
 
 	switch (stage)
@@ -123,7 +123,44 @@ void GumbaInitialize(int stage)
 		}
 
 		break;
+	case 42:
+		gumbaNum = 2;
 
+		for (int i = 0; i < gumbaNum; i++)
+		{
+			gb[i].gumbaState = GumbaMotion[0];
+			gb[i].pos.X = (7 + 3 * i)*BRICK_WIDTH;
+			gb[i].pos.Y = HEIGHT - 2 * BRICK_HEIGHT;
+			gb[i].isLeft = 0;
+			gb[i].isRight = 1;
+		}
+		break;
+
+	case 45:
+		gumbaNum = 1;
+
+		for (int i = 0; i < gumbaNum; i++)
+		{
+			gb[i].gumbaState = GumbaMotion[0];
+			gb[i].pos.X = (9)*BRICK_WIDTH;
+			gb[i].pos.Y = HEIGHT - 2 * BRICK_HEIGHT;
+			gb[i].isLeft = 0;
+			gb[i].isRight = 1;
+		}
+		break;
+
+	case 47:
+		gumbaNum = 2;
+
+		for (int i = 0; i < gumbaNum; i++)
+		{
+			gb[i].gumbaState = GumbaMotion[0];
+			gb[i].pos.X = (5 + 2 * i)*BRICK_WIDTH;
+			gb[i].pos.Y = HEIGHT - 7 * BRICK_HEIGHT;
+			gb[i].isLeft = 0;
+			gb[i].isRight = 1;
+		}
+		break;
 	default:
 		gumbaNum = 0;
 		break;
