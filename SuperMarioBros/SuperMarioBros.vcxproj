@@ -139,6 +139,101 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BackGround.c" />
+    <ClCompile Include="ConsoleBufferContoller.c" />
+    <ClCompile Include="Gumba.c" />
+    <ClCompile Include="Koopa.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="Map.c" />
+    <ClCompile Include="Mario.c" />
+    <ClCompile Include="MusicController.c" />
+    <ClCompile Include="OpeningScene.c" />
+    <ClCompile Include="Process.c" />
+    <ClCompile Include="StageController.c" />
+    <ClCompile Include="Turtle.c" />
+    <ClCompile Include="UI.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="info.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="0.txt" />
+    <Text Include="1.txt" />
+    <Text Include="2.txt" />
+    <Text Include="3.txt" />
+    <Text Include="4.txt" />
+    <Text Include="5.txt" />
+    <Text Include="6.txt" />
+    <Text Include="7.txt" />
+    <Text Include="8.txt" />
+    <Text Include="9.txt" />
+    <Text Include="a.txt" />
+    <Text Include="brick.txt" />
+    <Text Include="brick_brown.txt" />
+    <Text Include="brick_gray.txt" />
+    <Text Include="D.txt" />
+    <Text Include="Door.txt" />
+    <Text Include="DoorBoss.txt" />
+    <Text Include="DoorWhite.txt" />
+    <Text Include="DoorWhiteReverse.txt" />
+    <Text Include="E.txt" />
+    <Text Include="G.txt" />
+    <Text Include="GameOverScreen.txt" />
+    <Text Include="Gumba.txt" />
+    <Text Include="GumbaDead.txt" />
+    <Text Include="GumbaLeft.txt" />
+    <Text Include="GumbaRight.txt" />
+    <Text Include="Hammer.txt" />
+    <Text Include="I.txt" />
+    <Text Include="ItemBox_O.txt" />
+    <Text Include="ItemBox_X.txt" />
+    <Text Include="Koopa.txt" />
+    <Text Include="KoopaFireLeft.txt" />
+    <Text Include="KoopaFireRight.txt" />
+    <Text Include="KoopaLeftAttack1.txt" />
+    <Text Include="KoopaLeftAttack2.txt" />
+    <Text Include="KoopaLeftStand1.txt" />
+    <Text Include="KoopaLeftStand2.txt" />
+    <Text Include="KoopaRightAttack1.txt" />
+    <Text Include="KoopaRightAttack2.txt" />
+    <Text Include="KoopaRightStand1.txt" />
+    <Text Include="KoopaRightStand2.txt" />
+    <Text Include="L.txt" />
+    <Text Include="M.txt" />
+    <Text Include="Map1.txt" />
+    <Text Include="Map2.txt" />
+    <Text Include="Map4.txt" />
+    <Text Include="Mario.txt" />
+    <Text Include="Mario_Jump_Left.txt" />
+    <Text Include="Mario_Jump_Right.txt" />
+    <Text Include="Mario_Stand_Left.txt" />
+    <Text Include="Mario_Stand_Right.txt" />
+    <Text Include="Mario_Walk_1_Right.txt" />
+    <Text Include="Mario_Walk_2_Right.txt" />
+    <Text Include="O.txt" />
+    <Text Include="pipe_body.txt" />
+    <Text Include="pipe_top.txt" />
+    <Text Include="PodobooDown.txt" />
+    <Text Include="PodobooUp.txt" />
+    <Text Include="R.txt" />
+    <Text Include="S.txt" />
+    <Text Include="SmallBush.txt" />
+    <Text Include="SmallCloud.txt" />
+    <Text Include="T.txt" />
+    <Text Include="Thorn.txt" />
+    <Text Include="TurtleLeft.txt" />
+    <Text Include="TurtleLeftWalk.txt" />
+    <Text Include="TurtleRight.txt" />
+    <Text Include="TurtleRightWalk.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Castle.wav" />
+    <Media Include="Coin.wav" />
+    <Media Include="Game over.wav" />
+    <Media Include="Jump.wav" />
+    <Media Include="MainMusic.wav" />
+    <Media Include="Mario dies.wav" />
+    <Media Include="World Clear.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
