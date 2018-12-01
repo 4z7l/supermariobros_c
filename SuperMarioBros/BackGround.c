@@ -17,6 +17,7 @@ static char DoorWhiteReverse[16 * 32];
 static char DoorBoss[16 * 64];
 static char Brick[BRICK_HEIGHT * BRICK_WIDTH];
 static char Brick_Gray[BRICK_HEIGHT * BRICK_WIDTH];
+static char Brick_Blue[BRICK_HEIGHT * BRICK_WIDTH];
 static char Thorn[THORN_HEIGHT * THORN_WIDTH];
 static char Hammer[16 * 32];
 /*===============================Functions===============================*/
@@ -47,6 +48,10 @@ void BackGoundInitialize()
 	loadBackGroundObj("brick_gray.txt", Brick_Gray, BRICK_WIDTH, BRICK_HEIGHT);
 	objectConvertor(Brick_Gray, BRICK_WIDTH, BRICK_HEIGHT);
 	backGroundObjs[BRICK_GRAY] = Brick_Gray;
+
+	loadBackGroundObj("brick_blue.txt", Brick_Blue, BRICK_WIDTH, BRICK_HEIGHT);
+	objectConvertor(Brick_Blue, BRICK_WIDTH, BRICK_HEIGHT);
+	backGroundObjs[BRICK_BLUE] = Brick_Blue;
 
 	loadBackGroundObj("Thorn.txt", Thorn, BRICK_WIDTH, BRICK_HEIGHT);
 	objectConvertor(Thorn, THORN_WIDTH, THORN_HEIGHT);

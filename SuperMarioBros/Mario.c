@@ -54,6 +54,12 @@ char* getMarioState()
 	return MarioState;
 }
 
+void setMarioPos(int x, int y)
+{
+	MarioPos.X = x;
+	MarioPos.Y = y;
+}
+
 void loadMario(char *fileName, int motion)
 {
 	char tmp;
@@ -104,7 +110,7 @@ void setMarioJump(int isJump)
 	}
 	if (isGround) {
 		playJumpSound();
-		jumpStartPos = MarioPos;
+		//jumpStartPos = MarioPos;
 		jumpHeight = 0;
 		isJumping = isJump;
 	}
@@ -172,10 +178,12 @@ void Mario_Jump()
 
 			break;
 		case UP:
-			if (isRight)
+			if (isRight) {
 				setMarioMotion(rJUMP);
-			else
+			}
+			else {
 				setMarioMotion(lJUMP);
+			}
 			break;
 		default:
 			break;
@@ -260,7 +268,7 @@ extern int isGameOver;
 extern int nextStage;
 void Mario_Hit()
 {
-	/* NPC/Àýº® Ãæµ¹Àº ¾ç¿· 6Ä­¾¿ ¿©À¯ÁÜ */
+	/* NPC/Àýº® Ãæµ¹Àº ¾ç¿· 4Ä­¾¿ ¿©À¯ÁÜ */
 	if (detectCollisionObject(MarioState, MARIO_WIDTH - 4 , MARIO_HEIGHT, MarioPos.X + 4 , MarioPos.Y)==1) {
 		isGameOver = 1;
 	}

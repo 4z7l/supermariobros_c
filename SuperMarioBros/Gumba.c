@@ -13,6 +13,7 @@ typedef struct __gumba {
 	char *gumbaState;
 	int isRight;
 	int isLeft;
+	int isDead;
 }Gumba;
 #define MAX_GUMBA_NUM 10
 
@@ -30,8 +31,15 @@ void GumbaInitialize(int stage)
 		isLoadedGumba = 1;
 	}
 
+	for (int i = 0; i < MAX_GUMBA_NUM; i++)
+	{
+		gb[i].isDead = 0;
+	}
+
+
 	switch (stage)
 	{
+	//=====================================[WORLD 1]=====================================
 	case 1:
 		gumbaNum = 3;
 
@@ -123,6 +131,56 @@ void GumbaInitialize(int stage)
 		}
 
 		break;
+	//=====================================[WORLD 2]=====================================
+	case 11:
+		gumbaNum = 1;
+
+		
+		gb[0].gumbaState = GumbaMotion[0];
+		gb[0].pos.X = 400;
+		gb[0].pos.Y = 70;
+		gb[0].isLeft = 0;
+		gb[0].isRight = 1;
+
+		break;
+	case 12:
+		gumbaNum = 1;
+
+
+		gb[0].gumbaState = GumbaMotion[0];
+		gb[0].pos.X = 400;
+		gb[0].pos.Y = 70;
+		gb[0].isLeft = 0;
+		gb[0].isRight = 1;
+
+		break;
+	case 13:
+		gumbaNum = 2;
+
+		for (int i = 0; i < gumbaNum; i++)
+		{
+			gb[i].gumbaState = GumbaMotion[0];
+			gb[i].pos.X = 150 + i * 240;
+			gb[i].pos.Y = 15;
+			gb[i].isLeft = 0;
+			gb[i].isRight = 1;
+		}
+
+		break;
+	case 14:
+		gumbaNum = 6;
+
+		for (int i = 0; i < gumbaNum; i++)
+		{
+			gb[i].gumbaState = GumbaMotion[0];
+			gb[i].pos.X = 0 + i * 80;
+			gb[i].pos.Y = 34;
+			gb[i].isLeft = 0;
+			gb[i].isRight = 1;
+		}
+
+		break;
+	//=====================================[WORLD 4]=====================================
 	case 42:
 		gumbaNum = 2;
 
@@ -215,11 +273,13 @@ void Gumba_Gravity()
 
 void Gumba_Move()
 {
-	//Gumba *pgb = gb;
+
 	static int d = 0;	//Gumba Motion change
 	d++;
 	for (int i = 0; i < gumbaNum; i++)
 	{
+		if (gb[i].isDead)
+			continue;
 		if (gb[i].isLeft == 1) {
 			if (detectCollisionMap(gb[i].gumbaState, GUMBA_WIDTH, GUMBA_HEIGHT, gb[i].pos.X - 1, gb[i].pos.Y))
 			{
@@ -251,9 +311,8 @@ void Gumba_Move()
 
 		}
 
-
 	}
-	//drawMap();
+
 }
 
 void Gumba_Die()
@@ -263,9 +322,7 @@ void Gumba_Die()
 		if (GumbadetectCollisionObject(gb[i].gumbaState, GUMBA_WIDTH, GUMBA_HEIGHT, gb[i].pos.X, gb[i].pos.Y))
 		{
 			deleteObjectFromMap(gb[i].gumbaState, GUMBA_WIDTH, GUMBA_HEIGHT, gb[i].pos.X, gb[i].pos.Y);
-			//임시방편
-			gb[i].pos.X = 10;
-			gb[i].pos.Y = 50;
+			gb[i].isDead = 1;
 		}
 	}
 }

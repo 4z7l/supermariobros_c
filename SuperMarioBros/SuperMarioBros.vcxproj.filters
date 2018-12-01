@@ -289,6 +289,9 @@
     <Text Include="T.txt">
       <Filter>리소스 파일\Text</Filter>
     </Text>
+    <Text Include="brick_blue.txt">
+      <Filter>리소스 파일\Object</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Castle.wav">
@@ -310,6 +313,9 @@
       <Filter>리소스 파일\Music</Filter>
     </Media>
     <Media Include="World Clear.wav">
+      <Filter>리소스 파일\Music</Filter>
+    </Media>
+    <Media Include="Underground.wav">
       <Filter>리소스 파일\Music</Filter>
     </Media>
   </ItemGroup>

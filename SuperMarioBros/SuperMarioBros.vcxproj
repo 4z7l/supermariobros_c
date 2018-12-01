@@ -170,6 +170,7 @@
     <Text Include="9.txt" />
     <Text Include="a.txt" />
     <Text Include="brick.txt" />
+    <Text Include="brick_blue.txt" />
     <Text Include="brick_brown.txt" />
     <Text Include="brick_gray.txt" />
     <Text Include="D.txt" />
@@ -234,6 +235,7 @@
     <Media Include="Jump.wav" />
     <Media Include="MainMusic.wav" />
     <Media Include="Mario dies.wav" />
+    <Media Include="Underground.wav" />
     <Media Include="World Clear.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

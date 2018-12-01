@@ -25,7 +25,7 @@ void playBackGroundMusic(int world, int turn)
 		mciOpen.lpstrElementName = TEXT("MainMusic.wav");
 		break;
 	case 1:
-		mciOpen.lpstrElementName = TEXT("MainMusic.wav");
+		mciOpen.lpstrElementName = TEXT("Underground.wav");
 		break;
 	case 2:
 		mciOpen.lpstrElementName = TEXT("MainMusic.wav");

@@ -13,6 +13,7 @@ typedef struct __turtle {
 	char *turtleState;
 	int isRight;
 	int isLeft;
+	int isDead;
 }Turtle;
 #define MAX_TURTLE_NUM 10
 
@@ -31,7 +32,10 @@ void TurtleInitialize(int stage)
 		loadTurtle("TurtleRightWalk.txt", 3);
 		isLoadedTurtle = 1;
 	}
-	
+	for (int i = 0; i < MAX_TURTLE_NUM; i++)
+	{
+		tt[i].isDead = 0;
+	}
 	switch (stage)
 	{
 	case 1:
@@ -96,13 +100,26 @@ void TurtleInitialize(int stage)
 		break;
 	case 10:
 
-		turtleNum = 2;
+		turtleNum = 0;
 
 		for (int i = 0; i < turtleNum; i++)
 		{
 			tt[i].turtleState = TurtleMotion[0];
-			tt[i].pos.X = 160 + i * 80;
+			tt[i].pos.X = 200 + i * 80;
 			tt[i].pos.Y = 10;
+			tt[i].isLeft = 0;
+			tt[i].isRight = 1;
+		}
+		break;
+	case 15:
+
+		turtleNum = 3;
+
+		for (int i = 0; i < turtleNum; i++)
+		{
+			tt[i].turtleState = TurtleMotion[0];
+			tt[i].pos.X =   100 + i * 100;
+			tt[i].pos.Y = 60;
 			tt[i].isLeft = 0;
 			tt[i].isRight = 1;
 		}
@@ -208,21 +225,24 @@ void Turtle_Gravity()
 
 void Turtle_Move()
 {
-	//Gumba *pgb = gb;
+
 	static int d = 0;	//Turtle Motion change
 	d++;
 	for (int i = 0; i < turtleNum; i++)
 	{
+
 		COORD mp = getMarioPos();
 		if (mp.X > tt[i].pos.X) {
 			tt[i].isLeft = 0;
 			tt[i].isRight = 1;
-
 		}
 		else {
 			tt[i].isLeft = 1;
 			tt[i].isRight = 0;
 		}
+
+		if (tt[i].isDead)
+			continue;
 
 
 		if (tt[i].isLeft == 1) {
@@ -267,9 +287,7 @@ void Turtle_Die()
 		if (GumbadetectCollisionObject(tt[i].turtleState, TURTLE_WIDTH, TURTLE_HEIGHT, tt[i].pos.X, tt[i].pos.Y))
 		{
 			deleteObjectFromMap(tt[i].turtleState, TURTLE_WIDTH, TURTLE_HEIGHT, tt[i].pos.X, tt[i].pos.Y);
-			//임시방편
-			tt[i].pos.X = 0;
-			tt[i].pos.Y = 0;
+			tt[i].isDead = 1;
 		}
 	}
 }
