@@ -292,6 +292,12 @@
     <Text Include="brick_blue.txt">
       <Filter>리소스 파일\Object</Filter>
     </Text>
+    <Text Include="W.txt">
+      <Filter>리소스 파일\Text</Filter>
+    </Text>
+    <Text Include="-.txt">
+      <Filter>리소스 파일\Text</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Castle.wav">

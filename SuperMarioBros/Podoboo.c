@@ -7,7 +7,6 @@
 
 /*===============================Variables===============================*/
 char PodobooMotion[2][PODOBOO_HEIGHT * PODOBOO_WIDTH];
-static int isLoadedPodoboo = 0;
 int PodobooNum = 0;
 
 typedef struct __podoboo {
@@ -26,11 +25,9 @@ void loadPodoboo(char *fileName, int motion);
 void PodobooInitialize(int stage)
 {
 
-	if (!isLoadedPodoboo) {
-		loadPodoboo("PodobooUp.txt", 0);
-		loadPodoboo("PodobooDown.txt", 1);
-		isLoadedPodoboo = 1;
-	}
+	loadPodoboo("PodobooUp.txt", 0);
+	loadPodoboo("PodobooDown.txt", 1);
+
 
 	switch (stage)
 	{

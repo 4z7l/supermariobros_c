@@ -5,33 +5,40 @@
 static int score = 0;
 char Screen[HEIGHT * WIDTH];
 char Numbers[10][NUMBER_HEIGHT * NUMBER_WIDTH];
-
+char Letters[11][LETTER_HEIGHT * LETTER_WIDTH];
 
 void loadTextScreen(char *fileName, int mapNum);
-void loadNumber(char *fileName, char *dist, int width, int height);
+void loadChar(char *fileName, char *dist, int width, int height);
 void drawScore();
 void clearScreen();
 void setObjectToScreen(char img[], int imageWidth, int imageHeight, int xoffset, int yoffset);
 
-static int isLoadedPodoboo = 0;
+
 
 void ScreenInitialize()
 {
-	if (!isLoadedPodoboo) {
-		loadTextScreen("GameOverScreen.txt", 1);
+
+	loadTextScreen("GameOverScreen.txt", 1);
 		
 		
-		for (int i = 0; i < 10; i++)
-		{
-			char num[8];
-			char txt[8] = ".txt";
-			num[0] = i + 48;
-			num[1] = 0;
-			strcat(num, txt);
-			loadNumber(num, Numbers[i], NUMBER_WIDTH, NUMBER_HEIGHT);
-		}
-		isLoadedPodoboo = 1;
+	for (int i = 0; i < 10; i++)
+	{
+		char num[8];
+		char txt[8] = ".txt";
+		num[0] = i + 48;
+		num[1] = 0;
+		strcat(num, txt);
+		loadChar(num, Numbers[i], NUMBER_WIDTH, NUMBER_HEIGHT);
 	}
+
+
+	loadChar("W.txt", Letters[IW], LETTER_WIDTH, LETTER_HEIGHT);
+	loadChar("O.txt", Letters[IO], LETTER_WIDTH, LETTER_HEIGHT);
+	loadChar("R.txt", Letters[IR], LETTER_WIDTH, LETTER_HEIGHT);
+	loadChar("L.txt", Letters[IL], LETTER_WIDTH, LETTER_HEIGHT);
+	loadChar("D.txt", Letters[ID], LETTER_WIDTH, LETTER_HEIGHT);
+	loadChar("-.txt", Letters[IDASH], LETTER_WIDTH, LETTER_HEIGHT);
+	
 
 
 
@@ -58,7 +65,7 @@ void loadTextScreen(char *fileName, int mapNum)
 	fclose(fp);
 }
 
-void loadNumber(char *fileName, char *dist, int width, int height)
+void loadChar(char *fileName, char *dist, int width, int height)
 {
 	char tmp;
 	int k = 0;
@@ -69,7 +76,7 @@ void loadNumber(char *fileName, char *dist, int width, int height)
 		for (int x = 0; x < width + 1; x++)
 		{
 			fscanf(fp, "%c", &tmp);
-			if ((tmp >= 'A' && tmp <= 'z') || (tmp >= '0' && tmp <= '9'))
+			if ((tmp >= 'A' && tmp <= 'Z') || (tmp >= '0' && tmp <= '9'))
 				dist[x + width * y] = tmp;
 		}
 	}
@@ -78,6 +85,7 @@ void loadNumber(char *fileName, char *dist, int width, int height)
 
 extern char *MarioState;
 extern int marioLife;
+extern int stage;
 void drawGameOverScreen()
 {
 	clearScreen();
@@ -88,6 +96,17 @@ void drawGameOverScreen()
 	else {
 		setObjectToScreen(MarioState, MARIO_WIDTH, MARIO_HEIGHT, 200, 60);
 		setObjectToScreen(Numbers[marioLife], NUMBER_WIDTH, NUMBER_HEIGHT, 250, 65);
+		setObjectToScreen(Letters[IW], LETTER_WIDTH, LETTER_HEIGHT, 150, 30);
+		setObjectToScreen(Letters[IO], LETTER_WIDTH, LETTER_HEIGHT, 170, 30);
+		setObjectToScreen(Letters[IR], LETTER_WIDTH, LETTER_HEIGHT, 190, 30);
+		setObjectToScreen(Letters[IL], LETTER_WIDTH, LETTER_HEIGHT, 210, 30);
+		setObjectToScreen(Letters[ID], LETTER_WIDTH, LETTER_HEIGHT, 230, 30);
+
+		setObjectToScreen(Numbers[((stage - 1) / 10) + 1], NUMBER_WIDTH, NUMBER_HEIGHT, 290, 30);
+		setObjectToScreen(Letters[IDASH], NUMBER_WIDTH, NUMBER_HEIGHT, 310, 30);
+		setObjectToScreen(Numbers[stage%10], NUMBER_WIDTH, NUMBER_HEIGHT, 330, 30);
+
+
 	}
 
 	setConsoleBuffer(Screen, WIDTH, HEIGHT, 0, 0);

@@ -25,13 +25,12 @@ extern COORD getMarioPos();
 void TurtleInitialize(int stage)
 {
 
-	if (!isLoadedTurtle) {
-		loadTurtle("TurtleLeft.txt", 0);
-		loadTurtle("TurtleRight.txt", 1);
-		loadTurtle("TurtleLeftWalk.txt", 2);
-		loadTurtle("TurtleRightWalk.txt", 3);
-		isLoadedTurtle = 1;
-	}
+
+	loadTurtle("TurtleLeft.txt", 0);
+	loadTurtle("TurtleRight.txt", 1);
+	loadTurtle("TurtleLeftWalk.txt", 2);
+	loadTurtle("TurtleRightWalk.txt", 3);
+
 	for (int i = 0; i < MAX_TURTLE_NUM; i++)
 	{
 		tt[i].isDead = 0;

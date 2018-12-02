@@ -7,7 +7,7 @@
 
 /*===============================Variables===============================*/
 char KoopaMotion[5][TURTLE_HEIGHT * TURTLE_WIDTH];
-static int isLoadedPodoboo = 0;
+static int isLoadedKoopa = 0;
 int KoopaNum = 0;
 
 typedef struct __koopa {
@@ -24,13 +24,12 @@ void loadKoopa(char *fileName, int motion);
 
 void KoopaInitialize(int stage)
 {
-	if (!isLoadedPodoboo) {
-		loadKoopa("Koopa.txt", 0);
-		//loadKoopa("TurtleRight.txt", 1);
-		//loadKoopa("TurtleLeftWalk.txt", 2);
-		//loadKoopa("TurtleRightWalk.txt", 3);
-		isLoadedPodoboo = 1;
-	}
+
+	loadKoopa("Koopa.txt", 0);
+	//loadKoopa("TurtleRight.txt", 1);
+	//loadKoopa("TurtleLeftWalk.txt", 2);
+	//loadKoopa("TurtleRightWalk.txt", 3);
+
 
 	switch (stage)
 	{

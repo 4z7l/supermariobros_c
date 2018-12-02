@@ -7,7 +7,6 @@
 /*===============================Variables===============================*/
 char Map[HEIGHT * WIDTH];
 char BackGround[HEIGHT * WIDTH];
-static int isLoadedPodoboo = 0;
 /*===============================Functions===============================*/
 
 void loadTextMap(char *fileName, int mapNum);
@@ -30,6 +29,7 @@ void mapInitialize(int stage)
 		break;
 
 	default:
+		loadTextMap("Map1.txt", 1);
 		break;
 	}
 
@@ -469,6 +469,9 @@ void mapInitialize(int stage)
 
 	case 42:
 
+
+		setMarioPos(0, 80);
+
 		// 바닥-회색벽돌,가시
 		for (int i = 0; i < 15; i++)
 		{
@@ -607,6 +610,7 @@ void mapInitialize(int stage)
 
 	case 46:
 
+	
 		// 바닥-회색벽돌,가시
 		for (int i = 0; i < 15; i++)
 		{
@@ -632,6 +636,7 @@ void mapInitialize(int stage)
 
 	case 47:
 
+		setMarioPos(0, 100);
 		// 바닥-회색벽돌,가시
 		for (int i = 0; i < 15; i++)
 		{
@@ -806,8 +811,9 @@ int detectCollisionMap(char img[], int imageWidth, int imageHeight, int xoffset,
 		for (int x = 0; x < imageWidth; x++)
 		{
 			tmp = img[x + imageWidth * y];
-			if (tmp == '0')
-				continue;
+			// 할지 말지 고민..
+			//if (tmp == '0')
+			//	continue;
 			if (Map[(x + xoffset) + WIDTH * (y + yoffset)] == '1')	// 1은 못지나감
 				return YES;
 		}

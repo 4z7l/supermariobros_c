@@ -19,6 +19,7 @@ int main()
 	/*===============================Initialize===============================*/
 	BackGoundInitialize();
 	LoadStage(stage);
+
 	/*===============================Thread===============================*/
 	HANDLE hThrd_input;
 	HANDLE hThrd_Enemy;

@@ -22,7 +22,7 @@ int isGround = 0;
 int isJumping = 0;
 int jumpHeight = 0;
 int jumpDirection = LEFT;
-#define MAX_JUMP_HEIGHT 30
+#define MAX_JUMP_HEIGHT 35
 COORD jumpStartPos;
 
 /*===============================Functions===============================*/
@@ -168,20 +168,24 @@ void Mario_Jump()
 		switch (jumpDirection)
 		{
 		case LEFT:
+			if (detectCollisionMap(MarioMotion[lJUMP], MARIO_WIDTH, MARIO_HEIGHT, MarioPos.X-2, MarioPos.Y)) break;
 			MarioPos.X-=2;
 			setMarioMotion(lJUMP);
 
 			break;
 		case RIGHT:
+			if (detectCollisionMap(MarioMotion[rJUMP], MARIO_WIDTH, MARIO_HEIGHT, MarioPos.X+2, MarioPos.Y)) break;
 			MarioPos.X+=2;
 			setMarioMotion(rJUMP);
 
 			break;
 		case UP:
 			if (isRight) {
+				if (detectCollisionMap(MarioMotion[rJUMP], MARIO_WIDTH, MARIO_HEIGHT, MarioPos.X, MarioPos.Y)) break;
 				setMarioMotion(rJUMP);
 			}
 			else {
+				if (detectCollisionMap(MarioMotion[lJUMP], MARIO_WIDTH, MARIO_HEIGHT, MarioPos.X, MarioPos.Y)) break;
 				setMarioMotion(lJUMP);
 			}
 			break;

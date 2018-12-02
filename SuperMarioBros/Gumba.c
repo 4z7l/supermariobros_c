@@ -25,11 +25,10 @@ void loadGumba(char *fileName, int motion);
 void GumbaInitialize(int stage) 
 {
 
-	if (!isLoadedGumba) {
-		loadGumba("GumbaLeft.txt", 0);
-		loadGumba("GumbaRight.txt", 1);
-		isLoadedGumba = 1;
-	}
+
+	loadGumba("GumbaLeft.txt", 0);
+	loadGumba("GumbaRight.txt", 1);
+
 
 	for (int i = 0; i < MAX_GUMBA_NUM; i++)
 	{
@@ -47,7 +46,7 @@ void GumbaInitialize(int stage)
 		{
 			gb[i].gumbaState = GumbaMotion[0];
 			gb[i].pos.X = 45 + i * 140;
-			gb[i].pos.Y = 15;
+			gb[i].pos.Y = 10;
 			gb[i].isLeft = 0;
 			gb[i].isRight = 1;
 		}
@@ -259,6 +258,8 @@ void Gumba_Gravity()
 {
 	for (int i = 0; i < gumbaNum; i++)
 	{
+		if (gb[i].isDead)
+			continue;
 		if (detectCollisionMap(gb[i].gumbaState, GUMBA_WIDTH, GUMBA_HEIGHT, gb[i].pos.X, gb[i].pos.Y + 1))
 		{
 			continue;
@@ -319,6 +320,8 @@ void Gumba_Die()
 {
 	for (int i = 0; i < gumbaNum; i++)
 	{
+		if (gb[i].isDead)
+			continue;
 		if (GumbadetectCollisionObject(gb[i].gumbaState, GUMBA_WIDTH, GUMBA_HEIGHT, gb[i].pos.X, gb[i].pos.Y))
 		{
 			deleteObjectFromMap(gb[i].gumbaState, GUMBA_WIDTH, GUMBA_HEIGHT, gb[i].pos.X, gb[i].pos.Y);
