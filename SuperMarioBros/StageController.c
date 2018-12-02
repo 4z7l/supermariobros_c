@@ -16,7 +16,7 @@ void LoadStage(int stage)
 	GumbaInitialize(stage);
 	PodobooInitialize(stage);
 	TurtleInitialize(stage);
-	//KoopaInitialize(stage);
+	KoopaInitialize(stage);
 	mapInitialize(stage);
 	ScreenInitialize();
 }

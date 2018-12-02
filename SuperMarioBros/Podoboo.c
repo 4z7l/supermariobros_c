@@ -32,7 +32,7 @@ void PodobooInitialize(int stage)
 	switch (stage)
 	{
 	
-	case 1:
+	/*case 1:
 		PodobooNum = 1;
 
 		for (int i = 0; i < PodobooNum; i++)
@@ -43,7 +43,7 @@ void PodobooInitialize(int stage)
 			PDB[i].isUp = 0;
 			PDB[i].isDown = 1;
 		}
-		break;
+		break;*/
 	case 41:
 		PodobooNum = 2;
 

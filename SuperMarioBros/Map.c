@@ -469,9 +469,6 @@ void mapInitialize(int stage)
 
 	case 42:
 
-
-		setMarioPos(0, 80);
-
 		// 바닥-회색벽돌,가시
 		for (int i = 0; i < 15; i++)
 		{
@@ -481,6 +478,8 @@ void mapInitialize(int stage)
 				setObjectToMap(getBackGroundObject(THORN), THORN_WIDTH, THORN_HEIGHT, i * THORN_WIDTH, HEIGHT - THORN_HEIGHT);
 				continue;
 			}
+			if (i >= 13)
+				continue;
 			setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, i * BRICK_WIDTH, HEIGHT - BRICK_HEIGHT);
 		}
 		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 1 * BRICK_WIDTH, 4 * BRICK_HEIGHT);
@@ -636,7 +635,6 @@ void mapInitialize(int stage)
 
 	case 47:
 
-		setMarioPos(0, 100);
 		// 바닥-회색벽돌,가시
 		for (int i = 0; i < 15; i++)
 		{
@@ -672,7 +670,6 @@ void mapInitialize(int stage)
 		// 거꾸로된하얀문
 		setObjectToMap(getBackGroundObject(DOORWHITEREVERSE), 32, 16, 430, HEIGHT - 7 * BRICK_HEIGHT);
 		break;
-
 	case 48:
 
 		for (int i = 0; i < 15; i++)
@@ -709,11 +706,21 @@ void mapInitialize(int stage)
 		// 바닥-회색벽돌,가시
 		for (int i = 0; i < 15; i++)
 			setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, i * BRICK_WIDTH, HEIGHT - BRICK_HEIGHT);
+		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 2 * BRICK_WIDTH, HEIGHT - 2 * BRICK_HEIGHT);
+		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 3 * BRICK_WIDTH, HEIGHT - 2 * BRICK_HEIGHT);
+		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 3 * BRICK_WIDTH, HEIGHT - 3 * BRICK_HEIGHT);
+		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 4 * BRICK_WIDTH, HEIGHT - 2 * BRICK_HEIGHT);
+		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 4 * BRICK_WIDTH, HEIGHT - 3 * BRICK_HEIGHT);
+		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 4 * BRICK_WIDTH, HEIGHT - 4 * BRICK_HEIGHT);
+		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 7 * BRICK_WIDTH, HEIGHT - 5 * BRICK_HEIGHT);
+		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 9 * BRICK_WIDTH, HEIGHT - 5 * BRICK_HEIGHT);
+		setObjectToMap(getBackGroundObject(BRICK_GRAY), BRICK_WIDTH, BRICK_HEIGHT, 11 * BRICK_WIDTH, HEIGHT - 5 * BRICK_HEIGHT);
 
 		// 쿠파 죽이는 망치
 		setObjectToMap(getBackGroundObject(HAMMER), 32, 16, 435, HEIGHT - 16 - BRICK_HEIGHT);
 		//쿠파불러오기
 		break;
+
 	case 50:
 
 		// 바닥-회색벽돌,가시
